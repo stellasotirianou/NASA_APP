@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
+import ImageCard from "./ImageCard";
+import dayjs, { Dayjs } from "dayjs";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { Grid } from "@mui/material";
 
 function App() {
   const [data, setData] = useState([]);
+  const [value, setValue] = useState(dayjs("2022-04-17"));
 
   useEffect(() => {
     fetch(
@@ -17,11 +23,19 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <h1>{data.title}</h1>
-      <img src={data.hdurl}></img>
-      <h2>{data.explanation}</h2>
-    </div>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Grid container rowSpacing={8}>
+        <Grid item>
+          <DatePicker
+            value={value}
+            onChange={(newValue) => setValue(newValue)}
+          />
+        </Grid>
+        <Grid item>
+          <ImageCard data={data} />
+        </Grid>
+      </Grid>
+    </LocalizationProvider>
   );
 }
 
