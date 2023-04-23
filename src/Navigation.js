@@ -7,7 +7,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navigation = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+    <Navbar
+      bg="dark"
+      variant="dark"
+      expand="md"
+      fixed="top"
+      style={{ position: "sticky" }}
+    >
       <Container>
         <Navbar.Brand>
           <img
@@ -22,15 +28,14 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>
-              <Link className="text-decoration-none text-white" to="/">
-                IMAGE OF THE DAY
-              </Link>
+            <Nav.Link as={Link} to="/">
+              IMAGE OF THE DAY
             </Nav.Link>
-            <Nav.Link>
-              <Link className="text-decoration-none text-white" to="/asteroids">
-                NEO's TRACKER
-              </Link>
+            <Nav.Link as={Link} to="/asteroids">
+              NEO's TRACKER
+            </Nav.Link>
+            <Nav.Link as={Link} to="/image">
+              IMAGE
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
