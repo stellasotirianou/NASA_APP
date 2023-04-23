@@ -13,6 +13,8 @@ module.exports = {
   ],
   devServer: {
     port: 3030, // you can change the port
+    historyApiFallback: true,
+    hot: true,
   },
   module: {
     rules: [
@@ -31,6 +33,11 @@ module.exports = {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
         loader: "url-loader",
         options: { limit: false },
+      },
+      {
+        test: /\.js$/,
+        enforce: "pre",
+        use: ["source-map-loader"],
       },
     ],
   },
