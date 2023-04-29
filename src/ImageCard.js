@@ -29,7 +29,7 @@ const ImageCard = () => {
           component="img"
           height="600"
           width="140"
-          image={data.url}
+          image={data.hdurl}
           alt="nasa image of the day"
         />
         <CardContent>

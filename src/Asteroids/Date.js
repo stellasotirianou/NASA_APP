@@ -1,8 +1,5 @@
 import * as React from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Typography from "@mui/material/Typography";
-import { useEffect, useState } from "react";
 import { formatDate } from "../utils";
 
 const Date = ({ selectedDate }) => {
