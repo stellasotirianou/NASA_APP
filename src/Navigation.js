@@ -34,8 +34,8 @@ const Navigation = () => {
             <Nav.Link as={Link} to="/asteroids">
               NEO's TRACKER
             </Nav.Link>
-            <Nav.Link as={Link} to="/image">
-              IMAGE
+            <Nav.Link as={Link} to="/eonet">
+              EONET
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
