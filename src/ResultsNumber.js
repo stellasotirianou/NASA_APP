@@ -15,7 +15,7 @@ const ResultsNumber = ({ text }) => {
           className="heading"
           style={{ margin: "20px", color: "#43484c" }}
         >
-          {text} events found for the past 10 days
+          {text} events found for the past 20 days
         </Typography>
       </Col>
     </Row>

@@ -9,6 +9,7 @@ import DatePicker from "./DatePicker";
 import Stack from "react-bootstrap/Stack";
 import "../App.css";
 import NEOs from "./NEOs";
+import { Circles } from "react-loader-spinner";
 
 const Asteroids = () => {
   const currentDate = getCurrentDate();
@@ -33,8 +34,13 @@ const Asteroids = () => {
 
   return (
     <div>
-      <Stack gap={3}>
-        <Header headerText={"Near Earth Object Tracker"} />
+      <Header
+        headerText={"Near Earth Object Tracker"}
+        subHeader={
+          "A list of Near Earth Objects (NEOs) - Asteroids which are having their closest approach to Earth on the selected date."
+        }
+      />
+      <Stack gap={5} style={{ margin: "20px" }}>
         <Row style={{ textAlign: "center" }}>
           <Col>
             <Date selectedDate={selectedDate} />
@@ -50,7 +56,19 @@ const Asteroids = () => {
           </Col>
         </Row>
         {isLoading ? (
-          <div className="App">Loading...</div>
+          <Row style={{ alignSelf: "center", marginTop: "140px" }}>
+            <Col>
+              <Circles
+                height="80"
+                width="80"
+                color="#0b3d91"
+                ariaLabel="circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            </Col>
+          </Row>
         ) : (
           <NEOs data={data} />
         )}
