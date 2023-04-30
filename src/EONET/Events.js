@@ -1,7 +1,8 @@
 import * as React from "react";
-import Card from "react-bootstrap/Card";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import { Container, Row, Col } from "react-bootstrap";
-import ListGroup from "react-bootstrap/ListGroup";
 import { formatDate } from "../utils";
 
 const Events = ({ data, currentDate }) => {
@@ -19,32 +20,33 @@ const Events = ({ data, currentDate }) => {
             return (
               <>
                 <Col key={key}>
-                  <Card>
-                    <Card.Body>
-                      <Card.Title>{event.title}</Card.Title>
-                      <Card.Text>
+                  <Card sx={{ minWidth: 275 }} raised>
+                    <CardContent>
+                      <Typography variant="h5" component="div">
+                        {event.title}
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: 14 }}
+                        gutterBottom
+                        color="text.secondary"
+                      >
                         {formatDate(
                           dates.slice(8),
                           dates.slice(5, 7),
                           dates.slice(0, 4)
                         )}
-                      </Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>
+                      </Typography>
+                      <Typography variant="body2" style={{ marginTop: "10px" }}>
                         Category: {event.categories[0].title}
-                      </ListGroup.Item>
-                      <ListGroup.Item>
-                        {" "}
-                        Coordinates: [ {event.geometries[0].coordinates[0]} ,
-                        {event.geometries[0].coordinates[1]}]
-                      </ListGroup.Item>
-                    </ListGroup>
-                    <Card.Body>
-                      <Card.Link href={event.sources[0].url} target="_blank">
+                      </Typography>
+                      <Typography variant="body2">
+                        Coordinates: [ {event.geometries[0].coordinates[0]} ,{" "}
+                        {event.geometries[0].coordinates[1]} ]
+                      </Typography>
+                      <a href={event.sources[0].url} target="_blank">
                         More Information
-                      </Card.Link>
-                    </Card.Body>
+                      </a>
+                    </CardContent>
                   </Card>
                 </Col>
               </>
