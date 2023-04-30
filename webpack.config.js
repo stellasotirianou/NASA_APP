@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   output: {
@@ -10,6 +11,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/index.html", // to import index.html file inside index.js
     }),
+    new Dotenv(),
   ],
   devServer: {
     port: 3030, // you can change the port

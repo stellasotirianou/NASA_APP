@@ -58,7 +58,6 @@ const NEOs = ({ data }) => {
           {Object.values(data.near_earth_objects).map((asteroid) =>
             asteroid.map((item, key) => {
               const neo = modifyData(item);
-              console.log(neo);
               return (
                 <>
                   <Col key={key}>

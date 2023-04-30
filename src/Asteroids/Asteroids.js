@@ -18,7 +18,7 @@ const Asteroids = () => {
   const [data, setData] = useState([]);
   const fetchData = async (selectedDate) => {
     const response = await fetch(
-      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${selectedDate}&end_date=${selectedDate}&api_key=mY5U7bQe6xACrnedLZj9il1o918YR0xNuk6S1F45&detailed=true`
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${selectedDate}&end_date=${selectedDate}&api_key=${process.env.REACT_APP_API_VARIABLE}&detailed=true`
     );
     try {
       const responseJson = await response.json();

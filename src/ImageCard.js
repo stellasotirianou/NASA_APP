@@ -14,7 +14,7 @@ const ImageCard = () => {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     fetch(
-      "https://api.nasa.gov/planetary/apod?api_key=mY5U7bQe6xACrnedLZj9il1o918YR0xNuk6S1F45"
+      `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_VARIABLE}`
     )
       .then((res) => res.json())
       .then((data) => {
